@@ -1,0 +1,37 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    ports:
+      - "5432:5432"
+    volumes:
+      - local_pgdata:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4:5.3
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: 'kostoman@gmail.com'
+      PGADMIN_DEFAULT_PASSWORD: 'l@bs#school1'
+      #SECURITY_EMAIL_VALIDATOR_ARGS: '{"check_deliverability": False}'
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+volumes:
+  local_pgdata:
+  pgadmin-data:
+
+  
