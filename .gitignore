@@ -25,15 +25,9 @@
 *.log
 *.sql
 *.sqlite
-*.ldf
-*.mdf
-*.ndf
-*.bin
-*.xel
-*.trc
-errorlog
-errorlog.1
-machine-key
+**/data
+**/log
+**/secrets
 
 # OS generated files #
 ######################
